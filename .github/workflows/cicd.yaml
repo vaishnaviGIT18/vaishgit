@@ -30,9 +30,13 @@ jobs:
       - name: Docker Build and Push to Docker Hub
         run: |
          docker build -t medical .
-         docker tag medical xerxez786/medical:latest
+         docker tag medical vaish18tech/medical:latest
          docker login -u ${{secrets.DOCKERHUB_USERNAME}} -p ${{ secrets.DOCKERHUB_TOKEN }}
-         docker push xerxez786/medical:latest
+         docker push vaish18tech/medical:latest
         env:
           DOCKER_CLI_ACI: 1
+      # - name: Lint and Flake8
+      #   run:
+      #     flake8 . --count --select=E9
+        
 
